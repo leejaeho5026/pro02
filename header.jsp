@@ -6,32 +6,26 @@
 	String sid = "";
 	if(session!=null) sid = (String) session.getAttribute("sid");  
 %>
-<header id="hd">
-	<div class="hd_wrap">
-		<nav id="tnb">
-			<ul class="right_item">
+<header id="hd" class="container">
+	<div class="container-fluid">
+		<nav id="tnb" class="navbar navbar-default">
+			<ul class="nav navbar-nav navbar-right" style="padding-right:40px">
 				<c:if test="${empty sid }">
-					<li><a href="">로그인</a></li>
-					<li><a href="">회원가입</a></li>
+					<li><a href="${path }/UserLogin.do">로그인</a></li>
+					<li><a href="${path }/UserTerms.do">회원가입</a></li>
 				</c:if>
 				<c:if test="${!empty sid }">
-					<li><a href="">마이페이지</a></li>
-					<li><a href="">장바구니</a></li>
-					<li><a href="">로그아웃</a></li>
-				</c:if>
-				<c:if test="${sid=='admin' }">
-					<li><a href="">관리자 페이지로</a></li>
+					<li><a href="${path }/MyPage.do">마이페이지</a></li>
+					<li><a href="${path }/MyBasket.do?id=${sid }">장바구니</a></li>
+					<li><a href="${path }/MySalesList.do?id=${sid }">구매내역</a></li>
+					<li><a href="${path }/UserLogout.do">로그아웃</a></li>
 				</c:if>
 			</ul>
 		</nav>
-		<nav id="gnb">
-			메인 메뉴
-		</nav>
 	</div>
-	<div class="container-fluid" style="padding-right:30px;">	
-		<nav class="navbar navbar-default">
+	<div class="container-fluid">	
+		<nav class="navbar navbar-default" style="padding-right:30px;">
 		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 		        <span class="sr-only">Toggle navigation</span>
@@ -39,49 +33,142 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">MYSHOP</a>
+		      <a class="navbar-brand" href="${path1 }">MYSHOP</a>
 		    </div>
 		
-		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-		        <li><a href="${path }/NoticeList.do">공지사항</a></li>
+		      <ul class="nav navbar-nav" data-toggle="tab-hover" role="tablist">
+		        <li class="active"><a href="${path1 }/ShopIntro.do">재호 쇼핑몰<span class="sr-only">(current)</span></a></li>
 		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		          <a href="${path1 }/ProductList.do?cate=01" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">운동화<span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0101">남자운동화</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0102">여자운동화</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0103">공용운동화</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0104">아동운동화</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0105">기타 교과서</a></li>
 		            <li class="divider"></li>
-		            <li><a href="#">Separated link</a></li>
-		            <li class="divider"></li>
-		            <li><a href="#">One more separated link</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0111">대학 참고서</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0112">고등 참고서</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0113">중등 참고서</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0114">초등 참고서</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0115">기타 참고서</a></li>
 		          </ul>
 		        </li>
+		        <li class="dropdown">
+		          <a href="${path1 }/ProductList.do?cate=02" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">슬리퍼 <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="${path1 }/ProductList.do?cate=0201">남자슬리퍼</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0202">여자슬리퍼</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0203">공용슬리퍼</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0204">아동슬리퍼</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0205">기타 자격증 관련서적</a></li>
+		          </ul>
+		        </li>
+		        <li class="dropdown">
+		          <a href="${path1 }/ProductList.do?cate=03" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">구두 <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="${path1 }/ProductList.do?cate=0301">남자구두</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0302">여자구두</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0303">공용구두</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0304">아동구두</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0305">데이터베이스</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0306">사무자동화</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0307">멀티미디어/그래픽</a></li>
+		            <li class="divider"></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0311">건축/인테리어</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0312">토목/건설</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0313">환경/소방/도시/조경</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0314">자동차/운전</a></li>
+		            <li class="divider"></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0321">금속/재료</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0322">기계/역학/항공</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0323">전기/전자</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0324">농수산/축산</a></li>
+		            <li class="divider"></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0331">생활과학</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0332">의학</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0333">기타</a></li>
+		          </ul>
+		        </li>
+		        <li class="dropdown">
+		          <a href="${path1 }/ProductList.do?cate=04" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">국내 일반 도서 <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="${path1 }/ProductList.do?cate=0401">소설</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0402">시/에세이</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0403">작품집</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0404">인문</a></li>
+		            <li class="divider"></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0411">가정/육아</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0412">요리</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0413">건강</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0414">자기계발</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0415">취미/실용/스포츠</a></li>
+		            <li class="divider"></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0421">경제/경영</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0422">정치/사회</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0423">역사/문화</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0424">종교</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0425">예술/대중문학</a></li>
+		          </ul>
+		        </li>
+		        <li class="dropdown">
+		          <a href="${path1 }/ProductList.do?cate=05" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">기타 서적 <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="${path1 }/ProductList.do?cate=0501">잡지</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0502">만화</a></li>
+		            <li class="divider"></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0511">서양 도서</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0512">일본 도서</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0513">중국 도서</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0514">동남아 도서</a></li>
+		            <li><a href="${path1 }/ProductList.do?cate=0515">기타 해외 도서</a></li>
+		          </ul>
+		        </li>
+     		    <li class="dropdown">
+     		    	<a href="${path }/NoticeList.do"class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">커뮤니티 <span class="caret"></span></a>
+			        <ul class="dropdown-menu" role="menu">
+			            <li><a href="${path1 }/NoticeList.do">공지사항</a></li>
+			            <li><a href="${path1 }/FaqList.do">자주하는 질문</a></li>
+			            <li><a href="${path1 }/QnaList.do">묻고 답하기</a></li>
+			            <li class="divider"></li>
+			            <li><a href="${path1 }/ReviewList.do">이용후기</a></li>
+			            <li><a href="${path1 }/DataList.do">자료실</a></li>
+			        </ul>
+     		    </li>
 		      </ul>
-		      <form class="navbar-form navbar-left" role="search">
-		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Search">
-		        </div>
-		        <button type="submit" class="btn btn-default">Submit</button>
-		      </form>
+		      
+		      <c:if test="${sid=='admin' }">
 		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="#">Link</a></li>
-		        <li class="dropdown" style="padding-right:30px; margin-right:30px;">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		        <li><a href="${path1 }/MemberList.do">회원 관리</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">상품/판매 관리 <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
+		            <li><a href="${path1 }/AdminCategoryList.do">카테고리 관리</a></li>
+		            <li><a href="${path1 }/AdminProductList.do">상품 관리</a></li>
+		            <li><a href="${path1 }/AdminSalesList.do">판매 관리</a></li>
+		            <li><a href="${path1 }/AdminInventoryList.do">재고 관리</a></li>
 		            <li class="divider"></li>
-		            <li><a href="#">Separated link</a></li>
+		            <li><a href="${path1 }/AdminBasketList.do">장바구니 관리</a></li>
+		           	<li><a href="${path1 }/Survey.do">배송 관리</a></li>
+		            <li><a href="${path1 }/AdminPayList.do">결제 관리</a></li>
+		          </ul>
+		        </li>
+		        <li class="dropdown" style="padding-right:30px; margin-right:30px;">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">글 관리 <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="${path1 }/AdminNoticeList.do">공지사항 관리</a></li>
+		            <li><a href="${path1 }/AdminReviewList.do">이용후기 관리</a></li>
+		            <li><a href="${path1 }/AdminQnaList.do">질문 및 답변 관리</a></li>
+		            <li class="divider"></li>
+		            <li><a href="${path1 }/AdminFaqList.do">자주하는 질문 관리</a></li>
+		            <li><a href="${path1 }/AdminDataList.do">자료실 관리</a></li>
 		          </ul>
 		        </li>
 		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
+		      </c:if>
+		    </div>
+		  </div>
 		</nav>
 	</div>
 </header>
-	

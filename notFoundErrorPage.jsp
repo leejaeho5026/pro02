@@ -1,39 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8" isErrorPage="true"%>
-<%
-	String path = request.getContextPath();
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path2" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>해당 페이지를 찾을 수 없습니다.</title>
-<!-- 문서 정보 등록 -->
-<!-- 검색엔진최적화(Search Engine Optimization) : SEO -->
-<meta name="subject" content="CJ프레시웨이 벤치마킹 사이트">
-<meta name="keywords" content="CJ프레시웨이, 식품, 식단, 주문제작">
-<meta name="description" content="CJ프레시웨이는 좋은 식자재를 유통하며, 건강하고 맛있는 식문화를 창출하는 대한민국 최고의 글로벌 식자재 유통 및 푸드서비스 전문 기업입니다.
-">
-<meta name="author" content="mr. kim">
-
-<!-- 파비콘(favicon) 설정 -->
-<link rel="shortcut icon" href="<%=path %>/images/favicon.ico">
-
-<!-- https://okgunyang.github.io/web1 -->
-<!-- 오픈그래프 설정 -->
-<meta name="og:site_name" content="사이트이름">
-<meta name="og:title" content="CJ프레시웨이">
-<meta name="og:description" content="CJ프레시웨이는 좋은 식자재를 유통하며, 건강하고 맛있는 식문화를 창출하는 대한민국 최고의 글로벌 식자재 유통 및 푸드서비스 전문 기업입니다.">
-      
-<!-- 기본 폰트 및 초기화 로딩 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR&display=swap" rel="stylesheet">
-<!-- 스타일 초기화 -->
-<!-- reset.css나 normalize.css를 CDN 또는 다운로드 받아 link로 연결 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-<link rel="stylesheet" href="<%=path %>/common.css">
-<link rel="stylesheet" href="<%=path %>/main.css">
+<%@ include file="./common.jsp" %>
 <style>
 .vs { height:40vh; }
  .content { background-image: url("./images/top_career.jpg"); }
@@ -63,10 +37,12 @@ img { display:inline-block; max-width:100%; }
 </style>
 </head>
 <body>
-<div class="msg">
+<%@ include file="./header.jsp" %>
+<div class="msg" style="min-height:500px">
 	<h1 class="title">요청하신 주소의 페이지를 찾을 수 없습니다.</h1>
-	<img src="./img/404pages.jpg" alt="찾을 수 없는 페이지">
-	<button type="button" class="btn" onclick="javascript:history.back()">되돌아가기</button>
+	<img src="img/404pages.jpg" alt="찾을 수 없는 페이지">
+	<button type="button" class="btn btn-primary" onclick="javascript:history.back()">되돌아가기</button>
 </div>
+<%@ include file="./footer.jsp" %>
 </body>
 </html>

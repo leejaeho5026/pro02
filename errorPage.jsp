@@ -69,4 +69,17 @@
 	<button type="button" class="btn" onclick="javascript:history.back()">되돌아가기</button>
 </div>
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </html>
